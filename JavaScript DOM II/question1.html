@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validate Input Data</title>
+</head>
+<body>
+    <p>Enter the percentage:</p>
+    <input id="perc">
+    <button type="button" onclick="validate()">Submit</button>
+    <p id="text"></p>
+
+    <script>
+        function validate() {
+            var score = parseFloat(document.getElementById('perc').value);
+
+     
+            if (!isNaN(score)) {
+                if (score >= 80 && score <= 100) {
+                    displayResult("Best", "green");
+                } else if (score >= 60 && score <= 79) {
+                    displayResult("Good", "blue");
+                } else if (score >= 50 && score <= 59) {
+                    displayResult("Better", "orange");
+                } else {
+                    displayResult("Not Eligible", "red");
+                }
+            } else {
+                alert('Please enter a valid number.');
+            }
+        }
+
+        function displayResult(text, color) {
+            document.getElementById('text').innerText = text;
+            document.getElementById('text').style.color = color;
+        }
+    </script>
+</body>
+</html>

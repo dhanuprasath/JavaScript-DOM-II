@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country and Capital</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        #heading {
+            margin-top: 20px;
+            font-size: 24px;
+        }
+
+        #countrySelect {
+            margin-top: 10px;
+        }
+
+        #capitalBox {
+            border: 1px solid #ccc;
+            padding: 5px;
+            margin-top: 10px;
+            display: inline-block;
+        }
+
+        #capital {
+            color: red;
+            font-weight: bold;
+            font-size: 14px;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="heading">Select the country name to find its capital</h1>
+    <select id="countrySelect" onchange="displayCapital()">
+        <option value="India">India</option>
+        <option value="Australia">Australia</option>
+        <option value="UnitedKingdom">United Kingdom</option>
+        <option value="America">America</option>
+        <option value="Germany">Germany</option>
+    </select>
+    <br>
+    <label>Capital :  </label>
+    <div id="capitalBox">
+        <p id="capital"></p>
+    </div>
+
+    <script>
+        function displayCapital() {
+            var countrySelect = document.getElementById('countrySelect');
+            var selectedCountry = countrySelect.options[countrySelect.selectedIndex].value;
+
+            var capitalElement = document.getElementById('capital');
+
+            switch (selectedCountry) {
+                case 'India':
+                    capitalElement.innerText = 'New Delhi';
+                    break;
+                case 'Australia':
+                    capitalElement.innerText = 'Canberra';
+                    break;
+                case 'UnitedKingdom':
+                    capitalElement.innerText = 'London';
+                    break;
+                case 'America':
+                    capitalElement.innerText = 'Washington, D.C.';
+                    break;
+                case 'Germany':
+                    capitalElement.innerText = 'Berlin';
+                    break;
+                default:
+                    capitalElement.innerText = 'Select a country to find its capital';
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>
